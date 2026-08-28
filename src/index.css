@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: #FAF9F6;
+    color: #171d30;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+  }
+  ::selection {
+    background: #d4af37;
+    color: #0a0e18;
+  }
+  *:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gold-400 px-6 py-3 font-semibold text-midnight-950 shadow-gold transition hover:bg-gold-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-midnight-900 px-6 py-3 font-semibold text-ivory transition hover:bg-midnight-800 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-midnight-200 px-6 py-3 font-medium text-midnight-700 transition hover:border-midnight-400 hover:bg-midnight-50 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-midnight-500 transition hover:bg-midnight-50 hover:text-midnight-900;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-600 transition hover:bg-red-100;
+  }
+  .field-label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-midnight-400 mb-1.5;
+  }
+  .field-input {
+    @apply w-full rounded-xl border border-midnight-200 bg-white px-4 py-3 text-sm text-midnight-900 placeholder:text-midnight-300 transition focus:border-gold-400 focus:ring-2 focus:ring-gold-100 outline-none;
+  }
+  .field-error {
+    @apply mt-1 text-xs font-medium text-red-600;
+  }
+  .card {
+    @apply rounded-2xl border border-midnight-100 bg-white shadow-card;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold-500;
+  }
+}
